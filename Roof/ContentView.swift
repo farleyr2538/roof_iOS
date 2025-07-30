@@ -24,11 +24,6 @@ struct ContentView: View {
         TabView(selection: $selected) {
             if isLoading {
                 ProgressView("Loading...")
-                    .task {
-                        await viewModel.fetchData()
-                        await viewModel.reviewsToLocations()
-                        isLoading = false
-                    }
             } else if viewModel.reviews.isEmpty {
                 Text("No Reviews")
                     .foregroundStyle(.gray)
@@ -44,6 +39,14 @@ struct ContentView: View {
                     }
                     .tag(Tab.mapTab)
             }
+        }
+        .task {
+            isLoading = true
+            await viewModel.getReviews()
+            isLoading = false
+        }
+        .task {
+            await viewModel.reviewsToLocations()
         }
     }
 }

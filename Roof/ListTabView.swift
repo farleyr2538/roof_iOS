@@ -12,15 +12,28 @@ struct ListTabView : View {
     
     @EnvironmentObject var viewModel : ViewModel
     
+    @State var searchText : String = ""
+    
+    var filteredItems : [Review] {
+        if searchText.isEmpty {
+            return viewModel.reviews
+        } else {
+            return viewModel.reviews.filter {
+                $0.address.lowercased().contains(searchText.lowercased())
+                ||
+                $0.postcode.lowercased().contains(searchText.lowercased())
+            }
+        }
+        
+    }
+    
     var body: some View {
         NavigationStack {
             List {
-                ForEach(viewModel.reviews) { review in
+                ForEach(filteredItems) { review in
                     NavigationLink {
                         ReviewView(review: review)
-                            //.navigationBarTitleDisplayMode(.inline)
                             .toolbarBackground(.ultraThinMaterial, for: .navigationBar)
-                            //.toolbarBackground(.visible, for: .navigationBar)
                     } label: {
                         ReviewListView(review: review)
                             .foregroundStyle(.black)
@@ -38,7 +51,19 @@ struct ListTabView : View {
                     }
                 }
             }
+            .searchable(text: $searchText, prompt: "Search")
+            
+            if filteredItems.isEmpty {
+                VStack {
+                    // Spacer()
+                    Text("no results")
+                        .foregroundStyle(.gray)
+                    Spacer()
+                }
+            }
+            
         }
+        
     }
 }
 

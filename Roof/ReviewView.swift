@@ -14,8 +14,9 @@ struct ReviewView : View {
     var review : Review
     
     var body : some View {
+        
         VStack {
-            MapView(review: review)
+            MapView(address: review.address + ", " + review.postcode)
             VStack {
                 VStack {
                     Text(review.address)
@@ -28,7 +29,7 @@ struct ReviewView : View {
                 HStack {
                     Text("Landlord Rating:")
                     Spacer()
-                    StarsView(number: review.landlordRating)
+                    StarsView(number: review.landlord_rating)
                         .padding(.trailing, 10)
                 }
                 Spacer()
@@ -40,14 +41,14 @@ struct ReviewView : View {
 
 #Preview {
     ReviewView(review: Review(
-        id: UUID(),
-        first_name: "Rob",
-        last_name: "Farley",
+        rating_id: UUID(),
+        fn: "Rob",
+        ln: "Farley",
         address: "Flat 8, Atlantic House",
         postcode: "SW15 2RD",
-        landlordRating: 3,
+        landlord_rating: 3,
         years: ["2020, 2021"],
-        timestamp:"12 March 2023"
+        time:"12 March 2023"
     ))
     .environmentObject(ViewModel())
 }

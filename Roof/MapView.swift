@@ -20,44 +20,36 @@ struct MapView : View {
     @State var coordinates : CLLocationCoordinate2D?
     @State var position : MapCameraPosition = .automatic
     
-    var review : Review
+    let span = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
     
-    var address : String {
-        review.address + ", " + review.postcode
-    }
+    var address : String
 
     var body: some View {
         if let coords = coordinates {
             Map(position: $position) {
-                Marker(review.address, coordinate: coords)
+                Marker(address, coordinate: coords)
                 // on tap, show star rating
                 // also, make marker nicer
             }
         } else {
             ProgressView()
                 .onAppear {
-                    viewModel.getCoordinates(address, completion: { coords, pos in
-                        DispatchQueue.main.async {
-                            self.coordinates = coords
-                            self.position = pos
+                    Task {
+                        await coordinates = viewModel.getCoordinates(address: address)
+                        if let coordinates = coordinates {
+                            position = .region(MKCoordinateRegion(
+                                center: coordinates,
+                                span: span
+                            ))
                         }
-                    })
+                    }
                 }
         }
     }
 }
     
 #Preview {
-    MapView(review: Review(
-        id: UUID(),
-        first_name: "Rob",
-        last_name: "Farley",
-        address: "Flat 8, Atlantic House",
-        postcode: "SW15 2RD",
-        landlordRating: 3,
-        years: ["2020, 2021"],
-        timestamp: "12 March 2023"
-    ))
+    MapView(address: "Flat 8, Atlantic House, SW15 2RD")
     .environmentObject(ViewModel())
 }
 

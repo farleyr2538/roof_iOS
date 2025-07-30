@@ -14,8 +14,13 @@
 		D43EF6D02BCCF101003FC111 /* ReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43EF6CF2BCCF101003FC111 /* ReviewView.swift */; };
 		D43EF6D22BCCF270003FC111 /* StarsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43EF6D12BCCF270003FC111 /* StarsView.swift */; };
 		D43EF6D42BD0DD22003FC111 /* ReviewListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43EF6D32BD0DD22003FC111 /* ReviewListView.swift */; };
+		D46CD2F52E0194330082CCCA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D46CD2F42E0194330082CCCA /* LaunchScreen.storyboard */; };
 		D479950C2C9EADB50026C781 /* ListTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D479950B2C9EADA70026C781 /* ListTabView.swift */; };
 		D479950E2C9EB7F50026C781 /* MapTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D479950D2C9EB7E90026C781 /* MapTabView.swift */; };
+		D4AF59CB2E3A306B005C7C86 /* ReviewPersistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4AF59CA2E3A306B005C7C86 /* ReviewPersistence.swift */; };
+		D4AF59CD2E3A5748005C7C86 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4AF59CC2E3A5748005C7C86 /* APIService.swift */; };
+		D4AF59CF2E3A57F5005C7C86 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4AF59CE2E3A57F5005C7C86 /* Models.swift */; };
+		D4AF59D12E3A66F7005C7C86 /* GeocodeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4AF59D02E3A66F7005C7C86 /* GeocodeHelper.swift */; };
 		D4B905812DF77E4A00B8BD0E /* MultiSelectRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B905802DF77E4A00B8BD0E /* MultiSelectRow.swift */; };
 		D4E6E0942B9079CB00BB6E57 /* RoofApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E6E0932B9079CB00BB6E57 /* RoofApp.swift */; };
 		D4E6E0962B9079CB00BB6E57 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E6E0952B9079CB00BB6E57 /* ContentView.swift */; };
@@ -51,8 +56,13 @@
 		D43EF6CF2BCCF101003FC111 /* ReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewView.swift; sourceTree = "<group>"; };
 		D43EF6D12BCCF270003FC111 /* StarsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarsView.swift; sourceTree = "<group>"; };
 		D43EF6D32BD0DD22003FC111 /* ReviewListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewListView.swift; sourceTree = "<group>"; };
+		D46CD2F42E0194330082CCCA /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D479950B2C9EADA70026C781 /* ListTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTabView.swift; sourceTree = "<group>"; };
 		D479950D2C9EB7E90026C781 /* MapTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapTabView.swift; sourceTree = "<group>"; };
+		D4AF59CA2E3A306B005C7C86 /* ReviewPersistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewPersistence.swift; sourceTree = "<group>"; };
+		D4AF59CC2E3A5748005C7C86 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		D4AF59CE2E3A57F5005C7C86 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		D4AF59D02E3A66F7005C7C86 /* GeocodeHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeocodeHelper.swift; sourceTree = "<group>"; };
 		D4B905802DF77E4A00B8BD0E /* MultiSelectRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiSelectRow.swift; sourceTree = "<group>"; };
 		D4E6E0902B9079CB00BB6E57 /* Roof.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Roof.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4E6E0932B9079CB00BB6E57 /* RoofApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoofApp.swift; sourceTree = "<group>"; };
@@ -95,6 +105,10 @@
 		D4E6E0872B9079CB00BB6E57 = {
 			isa = PBXGroup;
 			children = (
+				D4AF59D02E3A66F7005C7C86 /* GeocodeHelper.swift */,
+				D4AF59CA2E3A306B005C7C86 /* ReviewPersistence.swift */,
+				D4AF59CC2E3A5748005C7C86 /* APIService.swift */,
+				D46CD2F42E0194330082CCCA /* LaunchScreen.storyboard */,
 				D4E6E0922B9079CB00BB6E57 /* Roof */,
 				D4E6E0A42B9079CC00BB6E57 /* RoofTests */,
 				D4E6E0AE2B9079CC00BB6E57 /* RoofUITests */,
@@ -116,6 +130,7 @@
 			isa = PBXGroup;
 			children = (
 				D43EF6CB2BC7A5DF003FC111 /* ViewModel.swift */,
+				D4AF59CE2E3A57F5005C7C86 /* Models.swift */,
 				D43EF6CF2BCCF101003FC111 /* ReviewView.swift */,
 				D403F7932BD6392E005EF0F5 /* MapView.swift */,
 				D479950D2C9EB7E90026C781 /* MapTabView.swift */,
@@ -263,6 +278,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D46CD2F52E0194330082CCCA /* LaunchScreen.storyboard in Resources */,
 				D4E6E09C2B9079CC00BB6E57 /* Preview Assets.xcassets in Resources */,
 				D4E6E0982B9079CC00BB6E57 /* Assets.xcassets in Resources */,
 			);
@@ -293,14 +309,18 @@
 				D4037F232C6E5D8E00203AB0 /* Success.swift in Sources */,
 				D479950C2C9EADB50026C781 /* ListTabView.swift in Sources */,
 				D43EF6D22BCCF270003FC111 /* StarsView.swift in Sources */,
+				D4AF59D12E3A66F7005C7C86 /* GeocodeHelper.swift in Sources */,
 				D43EF6D42BD0DD22003FC111 /* ReviewListView.swift in Sources */,
 				D43EF6CC2BC7A5DF003FC111 /* ViewModel.swift in Sources */,
 				D4B905812DF77E4A00B8BD0E /* MultiSelectRow.swift in Sources */,
 				D43EF6CE2BCCEFA2003FC111 /* SubmitView.swift in Sources */,
+				D4AF59CD2E3A5748005C7C86 /* APIService.swift in Sources */,
+				D4AF59CF2E3A57F5005C7C86 /* Models.swift in Sources */,
 				D4E6E0962B9079CB00BB6E57 /* ContentView.swift in Sources */,
 				D479950E2C9EB7F50026C781 /* MapTabView.swift in Sources */,
 				D403F7942BD6392E005EF0F5 /* MapView.swift in Sources */,
 				D4E6E0942B9079CB00BB6E57 /* RoofApp.swift in Sources */,
+				D4AF59CB2E3A306B005C7C86 /* ReviewPersistence.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -391,6 +411,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = Roof/Info.plist;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -448,6 +469,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = Roof/Info.plist;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -468,12 +490,15 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -506,12 +531,15 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";

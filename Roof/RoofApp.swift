@@ -16,7 +16,6 @@ struct RoofApp: App {
         WindowGroup {
             ContentView()
                 .environmentObject(viewModel)
-            
         }
     }
 }

@@ -23,7 +23,7 @@ struct ReviewListView : View {
                     
             }
             Spacer()
-            StarsView(number: review.landlordRating)
+            StarsView(number: review.landlord_rating)
         }
         .padding(.vertical, 5)
     }
@@ -31,13 +31,13 @@ struct ReviewListView : View {
 
 #Preview {
     ReviewListView(review: Review(
-        id: UUID(),
-        first_name: "Rob",
-        last_name: "Farley",
+        rating_id: UUID(),
+        fn: "Rob",
+        ln: "Farley",
         address: "Flat 8, Atlantic House, 51-57 Upper Richmond Road",
         postcode: "SW15 2RD",
-        landlordRating: 3,
+        landlord_rating: 3,
         years: ["2020, 2021"],
-        timestamp:"12 March 2023"
+        time:"12 March 2023"
     ))
 }

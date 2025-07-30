@@ -14,15 +14,15 @@ struct SubmitView : View {
     @Environment(\.dismiss) private var dismiss
     
     @State var newReview = Review(
-        id: UUID(),
-        first_name: "",
-        last_name: "",
+        rating_id: UUID(),
+        fn: "",
+        ln: "",
         address: "",
         postcode: "",
-        landlordRating: 6,
-        propertyRating: 6,
+        landlord_rating: 6,
+        property_rating: 6,
         years: [],
-        timestamp:""
+        time: ""
     )
     
     @State var selectedYears : [String] = []
@@ -31,8 +31,8 @@ struct SubmitView : View {
         VStack {
             Form {
                 Section(header: Text("About you")) {
-                    TextField("First name", text: $newReview.first_name)
-                    TextField("Last name", text: $newReview.last_name)
+                    TextField("First name", text: $newReview.fn)
+                    TextField("Last name", text: $newReview.ln)
                 }
                 Section(header: Text("About the property")) {
                     TextField("Property address", text: $newReview.address)
@@ -53,7 +53,7 @@ struct SubmitView : View {
                     }
                 }
                 Section(header: Text("Landlord rating")) {
-                    Picker("landlord rating", selection: $newReview.landlordRating) {
+                    Picker("landlord rating", selection: $newReview.landlord_rating) {
                         Text("1").tag(1)
                         Text("2").tag(2)
                         Text("3").tag(3)
@@ -64,7 +64,7 @@ struct SubmitView : View {
                     
                 }
                 Section(header: Text("Property rating")) {
-                    Picker("property rating", selection: $newReview.propertyRating) {
+                    Picker("property rating", selection: $newReview.property_rating) {
                         Text("1").tag(1)
                         Text("2").tag(2)
                         Text("3").tag(3)
@@ -84,10 +84,12 @@ struct SubmitView : View {
                             
                             // assign current date/time to review
                             let date = viewModel.dateFormatter.string(from: Date())
-                            newReview.timestamp = date
+                            newReview.time = date
                             
                             // submit review
-                            viewModel.submitReview(review: newReview)
+                            Task {
+                                await viewModel.submitReview(newReview)
+                            }
                             
                             // dismiss view
                             dismiss()

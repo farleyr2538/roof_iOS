@@ -15,13 +15,22 @@ struct MapTabView : View {
         
     var body: some View {
         Group {
-            Map() {
-                ForEach(viewModel.locations) { location in
-                    Marker(location.address, coordinate: location.coordinates)
+            if viewModel.locations.isEmpty {
+                ProgressView()
+                    .task {
+                        await viewModel.reviewsToLocations()
+                    }
+            } else {
+                Map() {
+                    ForEach(viewModel.locations) { location in
+                        Marker(location.address, coordinate: location.coordinates)
+                    }
                 }
             }
+            
         }
         .ignoresSafeArea()
+        
     }
 }
 
